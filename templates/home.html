@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1 class="my-4 text-center">Актуальні лоти</h1>
+<div class="row">
+    {% for lot in lots %}
+    <div class="col-md-4">
+        <div class="card mb-4">
+            <img src="{{ lot.image_url }}" class="card-img-top" alt="Зображення лота">
+            <div class="card-body">
+                <h5 class="card-title">{{ lot.title }}</h5>
+                <p class="card-text">{{ lot.description[:100] }}...</p>
+                <p class="card-text"><strong>Ціна: </strong>{{ lot.price }} грн</p>
+                <a href="{{ url_for('view_lot', lot_id=lot.id) }}" class="btn btn-primary">Деталі</a>
+
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
+

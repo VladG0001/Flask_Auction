@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>{{ user.first_name }} {{ user.last_name }}'s Профіль</h1>
+<img src="{{ url_for('static', filename='images/' + user.photo) }}" alt="Фото профілю">
+<p><strong>Ім'я:</strong> {{ user.first_name }} {{ user.middle_name }} {{ user.last_name }}</p>
+<p><strong>Email:</strong> {{ user.email }}</p>
+<h2>Ваші Лоти</h2>
+<div class="lots">
+    {% for lot in user.lots %}
+        <div class="lot">
+            <img src="{{ url_for('static', filename='images/' + lot.image) }}" alt="{{ lot.title }}">
+            <h2>{{ lot.title }}</h2>
+            <p>{{ lot.description }}</p>
+            <p><strong>Ціна: </strong>{{ lot.price }} UAH</p>
+            <p><strong>Категорія: </strong>{{ lot.category }}</p>
+        </div>
+    {% endfor %}
+</div>
+<a href="{{ url_for('create_lot') }}" class="btn">Створити новий лот</a>
+{% endblock %}

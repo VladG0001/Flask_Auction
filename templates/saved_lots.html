@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Ваші збережені лоти</h1>
+    <div class="lots">
+        {% for saved_lot in saved_lots %}
+            <div class="lot">
+                <img src="{{ url_for('static', filename='images/' + saved_lot.lot.image) }}" alt="{{ saved_lot.lot.title }}">
+                <h2>{{ saved_lot.lot.title }}</h2>
+                <p>{{ saved_lot.lot.description }}</p>
+                <p><strong>Ціна: </strong>{{ saved_lot.lot.price }} UAH</p>
+                <p><strong>Категорія: </strong>{{ saved_lot.lot.category }}</p>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

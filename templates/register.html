@@ -1,0 +1,40 @@
+register_html_content = '''{% extends "base.html" %}
+
+{% block content %}
+    <h1>Register</h1>
+    <form method="POST" enctype="multipart/form-data">
+        {{ form.hidden_tag() }}
+        <div>
+            {{ form.first_name.label }}<br>
+            {{ form.first_name(size=32) }}<br>
+        </div>
+        <div>
+            {{ form.last_name.label }}<br>
+            {{ form.last_name(size=32) }}<br>
+        </div>
+        <div>
+            {{ form.middle_name.label }}<br>
+            {{ form.middle_name(size=32) }}<br>
+        </div>
+        <div>
+            {{ form.email.label }}<br>
+            {{ form.email(size=32) }}<br>
+        </div>
+        <div>
+            {{ form.password.label }}<br>
+            {{ form.password(size=32) }}<br>
+        </div>
+        <div>
+            {{ form.confirm_password.label }}<br>
+            {{ form.confirm_password(size=32) }}<br>
+        </div>
+        <div>
+            {{ form.photo.label }}<br>
+            {{ form.photo() }}<br>
+        </div>
+        <div>
+            {{ form.submit() }}
+        </div>
+    </form>
+{% endblock %}
+'''
